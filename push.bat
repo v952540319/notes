@@ -1,3 +1,3 @@
-start git add -a
-start git commit -a -m"update"
-start git push
+start git add -a  
+git commit -a -m"update" 
+git push
