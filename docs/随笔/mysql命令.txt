@@ -1,0 +1,51 @@
+#存储过程
+create procedure select(in|out|inout varName int)
+begin
+   select * from TableName where
+	id = varName
+end
+
+set @varName = 1
+call select(varName)
+
+
+#视图
+create view viewName(xx1,xx2)
+as select xx1,xx2 from table;
+
+selcet * from viewName
+
+#触发器
+create trigger triggerName 
+after insert | delect
+on tableName1 for each row
+update tableName2 set row1 = row1+1
+
+
+#约束
+建表：
+create table tableName(
+id int not null primary key auto_increment,
+out varchar(50) null 
+outTime datetime default NOW(),
+
+constraint xxx foreign key(out) 
+references outTable(`主键列`)
+)
+alter table tableName add primary Key(`key`)
+alter table tableName modify id int not null
+alter table tableName add unique 约束名(`key`)
+alter table tableName modify id int not null auto_increment
+
+alter table tableName add contraint xxx foreign Key(`out`)
+refences outTable(`key`)
+
+
+
+
+
+
+
+
+
+

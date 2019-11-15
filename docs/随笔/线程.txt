@@ -1,0 +1,38 @@
+   
+线程循环
+
+thread = new Thread(new Runnable() {
+           @Override
+           public void run() {
+               Log.d("msg:","msggg");
+               handler.postDelayed(thread,3000);
+           }
+       });
+        handler.post(thread);
+
+
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d("msg:",msg+"");
+
+        }
+    };
+
+线程更新
+new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            handler.sendEmptyMessage(1);
+                        }
+                    }).start();
+
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d("msg:", msg + "");
+            button.setText("asdasdasda");
+        }
+    };
+
